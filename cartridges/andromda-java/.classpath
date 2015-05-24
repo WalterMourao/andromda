@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+  <classpathentry kind="src" path="src/test/java" output="target/test-classes" including="**/*.java"/>
+  <classpathentry kind="src" path="src/test/resources" output="target/test-classes" excluding="**/*.java"/>
+  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="var" path="M2_REPO/javax/inject/javax.inject/1/javax.inject-1.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="var" path="M2_REPO/junit/junit/4.10/junit-4.10.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jukito/jukito/1.1/jukito-1.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/objenesis/objenesis/1.0/objenesis-1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/inject/guice/3.0/guice-3.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/inject/extensions/guice-assistedinject/3.0/guice-assistedinject-3.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/de/crowdcode/kissmda/core/kissmda-core/2.0.0/kissmda-core-2.0.0.jar" sourcepath="M2_REPO/de/crowdcode/kissmda/core/kissmda-core/2.0.0/kissmda-core-2.0.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/walter/.m2/repository/de/crowdcode/kissmda/core/kissmda-core/2.0.0/kissmda-core-2.0.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/uml2/org.eclipse.uml2.uml.resources/3.1.0.v201005031530/org.eclipse.uml2.uml.resources-3.1.0.v201005031530.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/uml2/org.eclipse.uml2.uml/3.1.0.v201006071150/org.eclipse.uml2.uml-3.1.0.v201006071150.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/uml2/org.eclipse.uml2.common/1.5.0.v201005031530/org.eclipse.uml2.common-1.5.0.v201005031530.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/emf/org.eclipse.emf.ecore/2.6.0.v20100614-1136/org.eclipse.emf.ecore-2.6.0.v20100614-1136.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/emf/org.eclipse.emf.common/2.6.0.v20100614-1136/org.eclipse.emf.common-2.6.0.v20100614-1136.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/emf/org.eclipse.emf.mapping.ecore2xml/2.5.0.v20100521-1847/org.eclipse.emf.mapping.ecore2xml-2.5.0.v20100521-1847.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/emf/org.eclipse.emf.ecore.xmi/2.5.0.v20100521-1846/org.eclipse.emf.ecore.xmi-2.5.0.v20100521-1846.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jibx/config/3rdparty/org/eclipse/org.eclipse.core.resources/3.7.100.v20110510-0712/org.eclipse.core.resources-3.7.100.v20110510-0712.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jibx/config/3rdparty/org/eclipse/org.eclipse.equinox.common/3.6.0.v20110523/org.eclipse.equinox.common-3.6.0.v20110523.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/tycho/org.eclipse.jdt.core/3.8.1.v20120125-1544/org.eclipse.jdt.core-3.8.1.v20120125-1544.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jibx/config/3rdparty/org/eclipse/org.eclipse.text/3.5.100.v20110505-0800/org.eclipse.text-3.5.100.v20110505-0800.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/guava/guava/15.0/guava-15.0.jar"/>
+</classpath>
