@@ -27,6 +27,7 @@ import javax.inject.Inject;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jdt.core.dom.AST;
+import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.Assignment;
 import org.eclipse.jdt.core.dom.Block;
 import org.eclipse.jdt.core.dom.BooleanLiteral;
@@ -36,16 +37,22 @@ import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.ExpressionStatement;
 import org.eclipse.jdt.core.dom.FieldAccess;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
+import org.eclipse.jdt.core.dom.Javadoc;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.NumberLiteral;
 import org.eclipse.jdt.core.dom.PackageDeclaration;
+import org.eclipse.jdt.core.dom.PrimitiveType;
 import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.StringLiteral;
+import org.eclipse.jdt.core.dom.TagElement;
+import org.eclipse.jdt.core.dom.TextElement;
 import org.eclipse.jdt.core.dom.ThisExpression;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
+import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
+import org.eclipse.jdt.core.dom.rewrite.ASTRewrite;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
@@ -66,6 +73,7 @@ import de.crowdcode.kissmda.core.uml.PackageHelper;
  * </p>
  * 
  * @author Lofi Dewanto
+ * @author Walter Mourão
  * @version 1.0.0
  * @since 1.0.0
  */
@@ -109,6 +117,7 @@ public class EnumGenerator {
 
 		generatePackage(clazz, ast, cu);
 		EnumDeclaration ed = generateEnum(clazz, ast, cu);
+		generateSerialVersionUID(clazz, ast, ed);
 		generateAttributes(clazz, ast, ed);
 		generateConstructor(clazz, ast, ed);
 		generateConstants(clazz, ast, ed);
@@ -118,7 +127,47 @@ public class EnumGenerator {
 		return cu;
 	}
 
-	/**
+	private static String SERIAL_VERSION_UID_COMMENT = "The serial version UID of this class. Needed for serialization.";
+	
+    /**
+     * Generate the serialVersionUID.
+     * 
+     * @param clazz
+     *            UM2 class
+     * @param ast
+     *            JDT AST
+     * @param ed
+     *            EnumerationDeclaration
+     */
+    @SuppressWarnings("unchecked")
+    public void generateSerialVersionUID(Classifier clazz, AST ast, EnumDeclaration ed) {
+        logger.log(Level.FINE, "Class: " + clazz.getName() + " - serialVersionUID");
+
+        VariableDeclarationFragment fragment = ast
+                .newVariableDeclarationFragment();
+        SimpleName variableName = ast.newSimpleName("serialVersionUID");
+        fragment.setName(variableName);
+        fragment.setInitializer(ast.newNumberLiteral("1L"));
+
+        FieldDeclaration fieldDeclaration = ast.newFieldDeclaration(fragment);
+        fieldDeclaration.modifiers().add(ast.newModifier(ModifierKeyword.PRIVATE_KEYWORD));
+        fieldDeclaration.modifiers().add(ast.newModifier(ModifierKeyword.STATIC_KEYWORD));
+        fieldDeclaration.modifiers().add(ast.newModifier(ModifierKeyword.FINAL_KEYWORD));
+        fieldDeclaration.setType(ast.newPrimitiveType(PrimitiveType.LONG));
+        
+        Javadoc javadoc= ast.newJavadoc();
+        TextElement textElement=ast.newTextElement();
+        textElement.setText(SERIAL_VERSION_UID_COMMENT);
+        TagElement tagElement=ast.newTagElement();
+        tagElement.fragments().add(textElement);
+        javadoc.tags().add(tagElement);
+
+        fieldDeclaration.setJavadoc(javadoc);
+                
+        ed.bodyDeclarations().add(fieldDeclaration);
+    }
+
+    /**
 	 * Generate the attributes.
 	 * 
 	 * @param clazz

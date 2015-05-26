@@ -6,6 +6,7 @@
   <classpathentry kind="output" path="target/classes"/>
   <classpathentry kind="var" path="M2_REPO/javax/inject/javax.inject/1/javax.inject-1.jar"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar"/>
   <classpathentry kind="var" path="M2_REPO/junit/junit/4.10/junit-4.10.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jukito/jukito/1.1/jukito-1.1.jar"/>
@@ -19,7 +20,6 @@
       <attribute value="jar:file:/home/walter/.m2/repository/de/crowdcode/kissmda/core/kissmda-core/2.0.0/kissmda-core-2.0.0-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/eclipse/uml2/org.eclipse.uml2.uml.resources/3.1.0.v201005031530/org.eclipse.uml2.uml.resources-3.1.0.v201005031530.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/eclipse/uml2/org.eclipse.uml2.uml/3.1.0.v201006071150/org.eclipse.uml2.uml-3.1.0.v201006071150.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/eclipse/uml2/org.eclipse.uml2.common/1.5.0.v201005031530/org.eclipse.uml2.common-1.5.0.v201005031530.jar"/>
