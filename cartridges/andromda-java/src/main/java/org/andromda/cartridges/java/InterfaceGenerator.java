@@ -601,8 +601,7 @@ public class InterfaceGenerator {
 		String commentDate = "Generation date: " + now.toString() + ".";
 
 		generatePackageJavadoc(ast, pd, PackageComment.CONTENT_1.getValue(),
-				PackageComment.CONTENT_2.getValue(), " ",
-				PackageComment.CONTENT_3.getValue(), " ", commentDate);
+				PackageComment.CONTENT_2.getValue(), " ", commentDate);
 
 		cu.setPackage(pd);
 	}

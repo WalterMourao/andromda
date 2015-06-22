@@ -30,8 +30,6 @@ import org.junit.runners.Suite.SuiteClasses;
  * @since 1.0.0
  */
 @RunWith(Suite.class)
-@SuiteClasses({ SimpleJavaModuleTest.class, InterfaceGeneratorTest.class,
-		InterfaceGeneratorMethodParamsTest.class, EnumGeneratorTest.class,
-		ExceptionGeneratorTest.class, JavaCodeFormatterTest.class })
+@SuiteClasses({JavaTest.class})
 public class AllTests {
 }
