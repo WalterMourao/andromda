@@ -1,10 +1,13 @@
 package org.andromda.cartridges.java;
 
+import org.apache.commons.lang3.StringUtils;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.BodyDeclaration;
 import org.eclipse.jdt.core.dom.Javadoc;
 import org.eclipse.jdt.core.dom.TagElement;
 import org.eclipse.jdt.core.dom.TextElement;
+import org.eclipse.uml2.uml.Comment;
 
 /**
  * Helper class for JDT/Andromda cartridges.
@@ -28,4 +31,16 @@ public class AndromdaHelper {
         return bodyDeclaration;
     }
 
+    public String concatComments(EList<Comment> comments){
+        if(comments.isEmpty()){
+            return StringUtils.EMPTY;
+        } else {
+            StringBuilder sb=new StringBuilder();
+            for(Comment comment: comments){
+                sb.append(comment.getBody()).append('\n');
+            }
+            sb.deleteCharAt(sb.length()-1);
+            return sb.toString();
+        }
+    }
 }

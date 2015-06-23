@@ -400,8 +400,9 @@ public class EnumClassGenerator {
 		String className = getClassName(clazz);
 		EnumDeclaration ed = ast.newEnumDeclaration();
 		ed.modifiers().add(
-				ast.newModifier(Modifier.ModifierKeyword.PUBLIC_KEYWORD));
+		ast.newModifier(Modifier.ModifierKeyword.PUBLIC_KEYWORD));
 		ed.setName(ast.newSimpleName(className));
+        andromdaHelper.createComment(ast, ed, andromdaHelper.concatComments(clazz.getOwnedComments()));
 		cu.types().add(ed);
 		return ed;
 	}
@@ -447,7 +448,9 @@ public class EnumClassGenerator {
 		Class enumerationClass = (Class) clazz;
 		EList<Property> attributes = enumerationClass.getAttributes();
 		for (Property enumLiteral : attributes) {
+		    
 			EnumConstantDeclaration ec = ast.newEnumConstantDeclaration();
+            andromdaHelper.createComment(ast, ec, andromdaHelper.concatComments(enumLiteral.getOwnedComments()));
 			String literalName = NameMasker.mask(enumLiteral.getName(),NameMasker.UPPERUNDERSCORE);
 			ec.setName(ast.newSimpleName(literalName));
 
