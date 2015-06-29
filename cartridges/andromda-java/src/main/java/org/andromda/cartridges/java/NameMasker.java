@@ -69,7 +69,7 @@ public class NameMasker
      * @param mask the mask to apply
      * @return the masked name.
      */
-    public static String mask(String name, String mask)
+    public String mask(String name, String mask)
     {
         mask = StringUtils.trimToEmpty(mask);
         name = StringUtils.trimToEmpty(name);

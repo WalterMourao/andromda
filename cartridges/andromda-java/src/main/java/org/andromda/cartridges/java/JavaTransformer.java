@@ -132,9 +132,13 @@ public class JavaTransformer implements Transformer {
 		Class clazz = (Class) element;
 		logger.log(Level.FINE, "Enumeration class: " + clazz.getName());
 		// Generate the enumeration for this class
+		/***
 		CompilationUnit compilationUnit = enumClassGenerator.generateEnum(clazz,
 				sourceDirectoryPackageName);
 		generateClassFile(clazz, compilationUnit);
+		***/
+		String fileContent=enumClassGenerator.generateEnumClass(clazz);
+		generateClassFile(clazz, fileContent);
 	}
 
 	private void checkStereotypeRootPackage(
@@ -181,4 +185,15 @@ public class JavaTransformer implements Transformer {
         javaFileWriter.createJavaFile(context, fullPackageName,
                 clazz.getName(), formattedCode);
 	}
+	
+    private void generateClassFile(Classifier clazz, String fileContent) throws IOException {
+
+                String fullPackageName = packageHelper.getFullPackageName(clazz,
+                        sourceDirectoryPackageName);
+
+                // Format before we generate the class file
+                String formattedCode = javaCodeFormatter.format(fileContent);
+                javaFileWriter.createJavaFile(context, fullPackageName,
+                        clazz.getName(), formattedCode);
+            }	
 }
